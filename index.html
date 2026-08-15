@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="R&V Locação e Transporte — transporte executivo, táxi e soluções corporativas em Parauapebas e região.">
+<title>R&V | Locação & Transporte</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap');
+
+:root{
+  --navy:#061525;
+  --navy2:#0b223b;
+  --gold:#c9a45c;
+  --gold2:#e5c77d;
+  --white:#fff;
+  --text:#182433;
+  --muted:#657383;
+  --light:#f5f7fa;
+  --line:#e7ebef;
+  --green:#20b765;
+  --shadow:0 24px 70px rgba(4,19,35,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
+
+/* HEADER */
+header{
+ position:fixed;top:0;left:0;width:100%;z-index:1000;
+ background:rgba(6,21,37,.90);backdrop-filter:blur(18px);
+ border-bottom:1px solid rgba(255,255,255,.08);transition:.3s
+}
+header.scrolled{background:rgba(6,21,37,.98);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.navbar{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;color:#fff;gap:9px}
+.logo-mark{font:800 25px Montserrat;color:#fff;letter-spacing:-2px}
+.logo-mark b{color:var(--gold)}
+.logo-copy strong{display:block;font:800 17px Montserrat;line-height:1}
+.logo-copy small{font-size:7px;letter-spacing:1.7px;color:#aab5c1}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:12px;font-weight:600;color:#c8d1db;transition:.25s}
+nav a:hover,nav a.active{color:#fff}
+nav a.active{color:var(--gold)}
+.header-btn,.btn{
+ display:inline-flex;align-items:center;justify-content:center;gap:12px;
+ border-radius:7px;padding:13px 20px;font-size:12px;font-weight:800;
+ border:1px solid transparent;cursor:pointer;transition:.25s
+}
+.header-btn{border-color:rgba(255,255,255,.25);color:#fff}
+.header-btn:hover{border-color:var(--gold);color:var(--gold)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:27px;cursor:pointer}
+
+/* HERO */
+.hero{
+ min-height:850px;position:relative;display:flex;align-items:center;color:#fff;
+ background:
+ linear-gradient(90deg,rgba(3,14,25,.98) 0%,rgba(3,14,25,.86) 42%,rgba(3,14,25,.40) 100%),
+ linear-gradient(135deg,#0b2946,#061525);
+ overflow:hidden
+}
+.hero:after{
+ content:"";position:absolute;width:620px;height:620px;border:1px solid rgba(201,164,92,.22);
+ border-radius:50%;right:-230px;bottom:-300px;box-shadow:0 0 0 80px rgba(201,164,92,.025),0 0 0 160px rgba(201,164,92,.018)
+}
+.hero-inner{position:relative;z-index:2;padding-top:80px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-size:10px;font-weight:800;letter-spacing:2.2px}
+.eyebrow:before{content:"";width:28px;height:2px;background:var(--gold)}
+.hero h1{font:800 clamp(42px,6vw,76px)/1.04 Montserrat;letter-spacing:-3px;max-width:800px;margin:22px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:650px;color:#c5d0dc;font-size:16px;line-height:1.8}
+.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-outline{border-color:rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{border-color:#fff}
+.stats{display:flex;gap:0;margin-top:65px}
+.stat{padding:0 32px;border-left:1px solid rgba(255,255,255,.18)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat strong{display:block;font:800 22px Montserrat;color:#fff}
+.stat span{font-size:10px;color:#93a2b1;text-transform:uppercase;letter-spacing:1px}
+
+/* COMMON */
+section{scroll-margin-top:82px}
+.section{padding:105px 0}
+.section-head{max-width:720px;margin:0 auto 55px;text-align:center}
+.section-head .eyebrow{justify-content:center}
+.section-head h2,.about-copy h2,.contact-copy h2{font:800 clamp(31px,4vw,46px)/1.12 Montserrat;color:var(--navy);letter-spacing:-1.5px;margin-top:14px}
+.section-head h2 span,.about-copy h2 span,.contact-copy h2 span{color:var(--gold)}
+.section-head p{color:var(--muted);margin-top:17px;font-size:14px}
+
+/* TRUST */
+.trust{margin-top:-48px;position:relative;z-index:5}
+.trust-box{background:#fff;border-radius:12px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+.trust-item{padding:27px 25px;border-right:1px solid var(--line)}
+.trust-item:last-child{border:0}
+.trust-item strong{display:block;font:700 15px Montserrat;color:var(--navy)}
+.trust-item span{display:block;font-size:11px;color:var(--muted);margin-top:5px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:85px;align-items:center}
+.about-photo{min-height:510px;border-radius:16px;background:linear-gradient(145deg,#09213a,#061525);position:relative;overflow:hidden}
+.about-photo:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(201,164,92,.25);border-radius:50%;left:-130px;bottom:-150px}
+.photo-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.22)}
+.photo-label b{font:800 82px Montserrat}
+.photo-label span{font-size:10px;letter-spacing:2px}
+.about-badge{position:absolute;right:25px;bottom:25px;background:var(--gold);color:var(--navy);padding:20px 23px;border-radius:10px}
+.about-badge strong{display:block;font:800 25px Montserrat}
+.about-badge span{font-size:10px;font-weight:700}
+.about-copy>p{margin-top:20px;color:var(--muted);font-size:14px}
+.points{display:grid;gap:18px;margin-top:30px}
+.point{display:flex;gap:13px}
+.point-icon{width:35px;height:35px;min-width:35px;border-radius:50%;display:grid;place-items:center;background:#f6efe1;color:var(--gold);font-weight:800}
+.point strong{display:block;font-size:13px;color:var(--navy)}
+.point span{display:block;font-size:11px;color:var(--muted)}
+
+/* SERVICES */
+.services{background:var(--light)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:29px;min-height:320px;position:relative;transition:.3s}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.card.featured{background:var(--navy);border-color:var(--navy);color:#fff}
+.card-icon{width:51px;height:51px;border-radius:9px;background:#f7f0e2;display:grid;place-items:center;font-size:21px}
+.featured .card-icon{background:rgba(201,164,92,.13)}
+.card-num{position:absolute;right:25px;top:26px;color:var(--gold);font-size:10px;font-weight:800}
+.card h3{font:700 18px Montserrat;margin-top:45px}
+.card p{font-size:12px;color:var(--muted);margin-top:13px}
+.featured p{color:#aeb9c5}
+.card a{position:absolute;bottom:27px;left:29px;color:var(--gold);font-size:11px;font-weight:800}
+
+/* CORPORATE */
+.corporate{background:var(--navy);color:#fff;padding:100px 0}
+.corp-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.corporate h2{font:800 clamp(32px,4vw,48px)/1.12 Montserrat;letter-spacing:-1.5px;margin-top:14px}
+.corporate h2 span{color:var(--gold)}
+.corporate p{color:#aeb9c5;font-size:14px;margin-top:20px;max-width:590px}
+.corp-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.corp-list div{font-size:12px;color:#d7dfe7}
+.corp-list b{color:var(--gold);margin-right:7px}
+.corp-panel{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:45px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.panel-top{display:flex;justify-content:space-between;align-items:center}
+.panel-top span{font-size:9px;letter-spacing:2px;color:var(--gold);font-weight:800}
+.panel-icon{width:50px;height:50px;border-radius:50%;background:rgba(201,164,92,.12);display:grid;place-items:center;color:var(--gold);font-size:20px}
+.corp-panel h3{font:700 24px Montserrat;margin:30px 0 12px}
+.corp-panel p{font-size:12px;margin:0;color:#9eabb8}
+.panel-lines{margin-top:28px;display:grid;gap:10px}
+.panel-line{height:7px;background:rgba(255,255,255,.08);border-radius:10px}
+.panel-line:nth-child(1){width:90%}.panel-line:nth-child(2){width:75%}.panel-line:nth-child(3){width:83%}
+
+/* FLEET */
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.fleet-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;transition:.3s}
+.fleet-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.fleet-image{height:245px;background:linear-gradient(145deg,#0c2b49,#061525);display:grid;place-items:center;color:rgba(255,255,255,.25);font-size:10px;letter-spacing:2px}
+.fleet-info{padding:24px}
+.fleet-info small{color:var(--gold);font-weight:800;font-size:9px;letter-spacing:1.5px}
+.fleet-info h3{font:700 18px Montserrat;margin-top:6px;color:var(--navy)}
+.fleet-info p{font-size:12px;color:var(--muted);margin-top:7px}
+
+/* PROCESS */
+.process{background:var(--light)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.process-step{padding:28px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.process-step b{color:var(--gold);font:800 12px Montserrat}
+.process-step h3{font:700 16px Montserrat;margin-top:16px;color:var(--navy)}
+.process-step p{font-size:11px;color:var(--muted);margin-top:7px}
+
+/* CTA */
+.cta{background:linear-gradient(125deg,#b88e40,#d8b568);padding:80px 0;color:var(--navy)}
+.cta-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.cta h2{font:800 clamp(30px,4vw,46px)/1.1 Montserrat;max-width:730px}
+.cta p{font-size:13px;margin-top:12px;color:rgba(6,21,37,.7)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
+.contact-copy>p{color:var(--muted);font-size:14px;margin-top:18px}
+.contact-list{margin-top:35px;display:grid;gap:19px}
+.contact-row{display:flex;gap:13px;align-items:center}
+.contact-icon{width:43px;height:43px;border-radius:9px;background:var(--light);display:grid;place-items:center}
+.contact-row small,.contact-row strong{display:block}
+.contact-row small{font-size:10px;color:#8995a2}.contact-row strong{font-size:12px;color:var(--navy)}
+.form{background:var(--light);padding:35px;border-radius:14px}
+.form h3{font:700 21px Montserrat;color:var(--navy)}
+.form>p{font-size:11px;color:var(--muted);margin-top:5px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{margin-top:18px}
+.field label{display:block;font-size:10px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:7px;background:#fff;outline:0;font-size:12px;color:var(--text)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,164,92,.1)}
+.field textarea{resize:vertical}
+.form .btn{width:100%;margin-top:22px}
+
+/* FOOTER */
+footer{background:#04101c;color:#fff;padding:65px 0 23px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:45px}
+.footer-brand p{color:#7e8d9d;font-size:11px;max-width:260px;margin-top:17px}
+.footer-col h4{font-size:10px;color:var(--gold);letter-spacing:1.4px;margin-bottom:14px}
+.footer-col a,.footer-col span{display:block;color:#82909f;font-size:11px;margin:8px 0}
+.footer-col a:hover{color:#fff}
+.bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:50px;padding-top:20px;display:flex;justify-content:space-between;color:#617080;font-size:9px}
+
+/* FLOATING */
+.whatsapp{position:fixed;right:22px;bottom:22px;z-index:999;background:var(--green);color:#fff;padding:13px 18px;border-radius:50px;font-size:11px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.2);transition:.25s}
+.whatsapp:hover{transform:translateY(-4px)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+ nav{gap:16px}.header-btn{display:none}
+ .cards{grid-template-columns:1fr 1fr}
+ .about-grid,.corp-grid,.contact-grid{grid-template-columns:1fr;gap:45px}
+ .process-grid{grid-template-columns:1fr 1fr}
+ .trust-box{grid-template-columns:1fr 1fr}
+ .trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .fleet-grid{grid-template-columns:1fr 1fr}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+ .navbar{height:70px}
+ nav{display:none;position:absolute;top:70px;left:0;width:100%;background:var(--navy);padding:25px;flex-direction:column;align-items:flex-start;border-top:1px solid rgba(255,255,255,.08)}
+ nav.open{display:flex}
+ .menu{display:block}
+ .hero{min-height:760px}.hero h1{font-size:43px;letter-spacing:-2px}
+ .stats{margin-top:45px;overflow:auto}.stat{min-width:120px}
+ .section{padding:78px 0}
+ .trust{margin-top:-25px}
+ .trust-box,.cards,.fleet-grid,.process-grid,.form-grid,.corp-list,.footer-grid{grid-template-columns:1fr}
+ .trust-item{border-right:0!important;border-bottom:1px solid var(--line)!important}
+ .trust-item:last-child{border-bottom:0!important}
+ .about-photo{min-height:380px}
+ .corp-panel{padding:28px}
+ .cta-inner{flex-direction:column;align-items:flex-start}
+ .form{padding:25px}
+ .bottom{flex-direction:column;gap:8px}
+ .whatsapp{right:14px;bottom:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="container navbar">
+    <a href="#inicio" class="logo">
+      <div class="logo-mark">R<b>&</b>V</div>
+      <div class="logo-copy">
+        <strong>R&V</strong>
+        <small>LOCAÇÃO & TRANSPORTE</small>
+      </div>
+    </a>
+
+    <nav id="nav">
+      <a class="active" href="#inicio">Início</a>
+      <a href="#empresa">A Empresa</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#corporativo">Corporativo</a>
+      <a href="#frota">Frota</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <a class="header-btn" href="#contato">Solicitar proposta →</a>
+    <button class="menu" id="menu" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow">TRANSPORTE • SEGURANÇA • CONFIANÇA</div>
+    <h1>Mobilidade que move<br><span>pessoas e negócios.</span></h1>
+    <p>
+      A R&V Locação e Transporte oferece soluções em táxi, transporte
+      executivo e atendimento corporativo com foco em segurança,
+      pontualidade e excelência operacional.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#contato">Solicitar proposta <b>→</b></a>
+      <a class="btn btn-outline" href="#corporativo">Conhecer soluções</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><strong>24/7</strong><span>Atendimento</span></div>
+      <div class="stat"><strong>100%</strong><span>Compromisso</span></div>
+      <div class="stat"><strong>PA</strong><span>Parauapebas e região</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container">
+    <div class="trust-box reveal">
+      <div class="trust-item"><strong>Segurança em primeiro lugar</strong><span>Responsabilidade em cada deslocamento.</span></div>
+      <div class="trust-item"><strong>Atendimento profissional</strong><span>Comunicação clara e suporte.</span></div>
+      <div class="trust-item"><strong>Operação organizada</strong><span>Planejamento e pontualidade.</span></div>
+      <div class="trust-item"><strong>Soluções sob medida</strong><span>Serviços adaptados à sua necessidade.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="empresa">
+  <div class="container about-grid">
+    <div class="about-photo reveal">
+      <div class="photo-label"><b>R&V</b><span>IMAGEM INSTITUCIONAL</span></div>
+      <div class="about-badge"><strong>R&V</strong><span>Locação & Transporte</span></div>
+    </div>
+
+    <div class="about-copy reveal">
+      <div class="eyebrow">SOBRE A EMPRESA</div>
+      <h2>Transporte com <span>propósito.</span></h2>
+      <p>
+        A R&V Locação e Transporte nasceu com o compromisso de entregar
+        mobilidade com responsabilidade, organização e atendimento próximo.
+      </p>
+      <p>
+        Atendemos passageiros e empresas que precisam de uma operação
+        confiável, buscando construir relações duradouras através da
+        qualidade do serviço.
+      </p>
+
+      <div class="points">
+        <div class="point"><div class="point-icon">✓</div><div><strong>Segurança</strong><span>Condução responsável e atenção em todas as viagens.</span></div></div>
+        <div class="point"><div class="point-icon">✓</div><div><strong>Pontualidade</strong><span>Respeito aos horários e compromisso com a operação.</span></div></div>
+        <div class="point"><div class="point-icon">✓</div><div><strong>Profissionalismo</strong><span>Atendimento preparado para clientes particulares e empresas.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="servicos">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">NOSSOS SERVIÇOS</div>
+      <h2>Soluções para cada <span>trajeto.</span></h2>
+      <p>Serviços pensados para passageiros, empresas e operações que dependem de mobilidade.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal"><div class="card-icon">🚕</div><span class="card-num">01</span><h3>Táxi</h3><p>Transporte de passageiros com praticidade, segurança e atendimento profissional.</p><a href="#contato">Solicitar serviço →</a></article>
+      <article class="card featured reveal"><div class="card-icon">▣</div><span class="card-num">02</span><h3>Corporativo</h3><p>Soluções de mobilidade para colaboradores, clientes, visitantes e demandas empresariais.</p><a href="#contato">Falar com a R&V →</a></article>
+      <article class="card reveal"><div class="card-icon">🚘</div><span class="card-num">03</span><h3>Executivo</h3><p>Transporte confortável para reuniões, eventos, compromissos e deslocamentos especiais.</p><a href="#contato">Solicitar orçamento →</a></article>
+      <article class="card reveal"><div class="card-icon">▤</div><span class="card-num">04</span><h3>Locação</h3><p>Alternativas de locação para necessidades específicas de mobilidade e transporte.</p><a href="#contato">Consultar →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="corporate" id="corporativo">
+  <div class="container corp-grid">
+    <div class="reveal">
+      <div class="eyebrow">SOLUÇÕES CORPORATIVAS</div>
+      <h2>Uma operação de transporte pensada para <span>empresas.</span></h2>
+      <p>
+        Se sua empresa precisa de transporte de pessoas, atendimento
+        recorrente ou uma solução específica de mobilidade, a R&V está
+        pronta para entender a demanda e desenvolver uma proposta.
+      </p>
+
+      <div class="corp-list">
+        <div><b>✓</b> Atendimento empresarial</div>
+        <div><b>✓</b> Planejamento operacional</div>
+        <div><b>✓</b> Comunicação direta</div>
+        <div><b>✓</b> Flexibilidade de atendimento</div>
+      </div>
+
+      <a class="btn btn-gold" href="#contato">Solicitar proposta comercial →</a>
+    </div>
+
+    <div class="corp-panel reveal">
+      <div class="panel-top"><span>R&V BUSINESS</span><div class="panel-icon">◆</div></div>
+      <h3>Mobilidade para sua operação</h3>
+      <p>Estruture uma solução de transporte alinhada à rotina e aos requisitos da sua empresa.</p>
+      <div class="panel-lines"><div class="panel-line"></div><div class="panel-line"></div><div class="panel-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="frota">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">FROTA E OPERAÇÃO</div>
+      <h2>Veículos preparados para <span>o serviço.</span></h2>
+      <p>Apresente aqui os veículos reais da R&V, suas categorias e características.</p>
+    </div>
+
+    <div class="fleet-grid">
+      <article class="fleet-card reveal"><div class="fleet-image">FOTO DO VEÍCULO</div><div class="fleet-info"><small>PASSAGEIROS</small><h3>Veículo de transporte</h3><p>Conforto e praticidade para deslocamentos.</p></div></article>
+      <article class="fleet-card reveal"><div class="fleet-image">FOTO DO VEÍCULO</div><div class="fleet-info"><small>EXECUTIVO</small><h3>Veículo executivo</h3><p>Experiência diferenciada para clientes e empresas.</p></div></article>
+      <article class="fleet-card reveal"><div class="fleet-image">FOTO DO VEÍCULO</div><div class="fleet-info"><small>CORPORATIVO</small><h3>Operação empresarial</h3><p>Solução para demandas recorrentes e contratos.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">COMO FUNCIONA</div>
+      <h2>Do primeiro contato à <span>execução.</span></h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal"><b>01</b><h3>Entendemos a demanda</h3><p>Conhecemos o trajeto, frequência, horários e necessidades.</p></div>
+      <div class="process-step reveal"><b>02</b><h3>Montamos a solução</h3><p>Definimos a melhor estrutura para o serviço solicitado.</p></div>
+      <div class="process-step reveal"><b>03</b><h3>Apresentamos a proposta</h3><p>Enviamos uma proposta clara e alinhada à operação.</p></div>
+      <div class="process-step reveal"><b>04</b><h3>Executamos o serviço</h3><p>Operação com foco em segurança, pontualidade e atendimento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner reveal">
+    <div><h2>Precisa de uma solução de transporte?</h2><p>Converse com a R&V e apresente sua necessidade.</p></div>
+    <a class="btn" style="background:var(--navy);color:#fff" href="#contato">Falar com a R&V →</a>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <div class="container contact-grid">
+    <div class="contact-copy reveal">
+      <div class="eyebrow">ENTRE EM CONTATO</div>
+      <h2>Vamos conversar sobre sua <span>necessidade.</span></h2>
+      <p>Preencha o formulário e envie sua solicitação diretamente pelo WhatsApp da empresa.</p>
+
+      <div class="contact-list">
+        <div class="contact-row"><div class="contact-icon">☎</div><div><small>WhatsApp</small><strong>(94) 99999-9999</strong></div></div>
+        <div class="contact-row"><div class="contact-icon">✉</div><div><small>E-mail</small><strong>contato@rvtransportes.com.br</strong></div></div>
+        <div class="contact-row"><div class="contact-icon">⌖</div><div><small>Área de atendimento</small><strong>Parauapebas e região — PA</strong></div></div>
+      </div>
+    </div>
+
+    <form class="form reveal" id="form">
+      <h3>Solicitar proposta</h3>
+      <p>As informações serão encaminhadas para o WhatsApp.</p>
+
+      <div class="form-grid">
+        <div class="field"><label>Nome</label><input id="nome" required placeholder="Seu nome"></div>
+        <div class="field"><label>Telefone</label><input id="telefone" required placeholder="(94) 99999-9999"></div>
+      </div>
+
+      <div class="field"><label>Tipo de serviço</label>
+        <select id="servico" required>
+          <option value="">Selecione</option>
+          <option>Táxi</option>
+          <option>Transporte corporativo</option>
+          <option>Transporte executivo</option>
+          <option>Locação de veículo</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <div class="form-grid">
+        <div class="field"><label>Origem</label><input id="origem" placeholder="Local de saída"></div>
+        <div class="field"><label>Destino</label><input id="destino" placeholder="Local de destino"></div>
+      </div>
+
+      <div class="field"><label>Mensagem</label><textarea id="mensagem" rows="4" placeholder="Descreva sua necessidade..."></textarea></div>
+
+      <button class="btn btn-gold" type="submit">Enviar pelo WhatsApp →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo"><div class="logo-mark">R<b>&</b>V</div><div class="logo-copy"><strong>R&V</strong><small>LOCAÇÃO & TRANSPORTE</small></div></a>
+        <p>Mobilidade com segurança, profissionalismo e compromisso.</p>
+      </div>
+      <div class="footer-col"><h4>Navegação</h4><a href="#empresa">A Empresa</a><a href="#servicos">Serviços</a><a href="#corporativo">Corporativo</a><a href="#frota">Frota</a></div>
+      <div class="footer-col"><h4>Serviços</h4><a href="#servicos">Táxi</a><a href="#corporativo">Transporte corporativo</a><a href="#servicos">Executivo</a><a href="#servicos">Locação</a></div>
+      <div class="footer-col"><h4>Contato</h4><a href="#contato">WhatsApp</a><a href="mailto:contato@rvtransportes.com.br">E-mail</a><span>Parauapebas — PA</span></div>
+    </div>
+    <div class="bottom"><span>© <span id="year"></span> R&V Locação e Transporte. Todos os direitos reservados.</span><span>Site institucional</span></div>
+  </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5594999999999" target="_blank">WhatsApp ↗</a>
+
+<script>
+const header=document.getElementById('header');
+const menu=document.getElementById('menu');
+const nav=document.getElementById('nav');
+
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled',scrollY>30);
+  const links=[...nav.querySelectorAll('a')];
+  let current='';
+  document.querySelectorAll('main section[id]').forEach(s=>{
+    if(scrollY >= s.offsetTop-140) current=s.id;
+  });
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const phone=document.getElementById('telefone');
+phone.addEventListener('input',()=>{
+  let v=phone.value.replace(/\D/g,'').slice(0,11);
+  if(v.length<=10)v=v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{4})(\d)/,'$1-$2');
+  else v=v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
+  phone.value=v;
+});
+
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const nome=document.getElementById('nome').value;
+  const tel=document.getElementById('telefone').value;
+  const serv=document.getElementById('servico').value;
+  const origem=document.getElementById('origem').value||'Não informado';
+  const destino=document.getElementById('destino').value||'Não informado';
+  const msg=document.getElementById('mensagem').value||'Não informado';
+
+  const text=`Olá, R&V Locação e Transporte!
+
+Gostaria de solicitar uma proposta.
+
+*Nome:* ${nome}
+*Telefone:* ${tel}
+*Serviço:* ${serv}
+*Origem:* ${origem}
+*Destino:* ${destino}
+
+*Mensagem:*
+${msg}`;
+
+  // TROQUE 5594999999999 PELO WHATSAPP REAL DA R&V
+  window.open('https://wa.me/5594999999999?text='+encodeURIComponent(text),'_blank');
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
