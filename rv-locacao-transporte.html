@@ -104,8 +104,10 @@ section{scroll-margin-top:82px}
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:85px;align-items:center}
 .about-photo{min-height:510px;border-radius:16px;background:linear-gradient(145deg,#09213a,#061525);position:relative;overflow:hidden}
-.about-photo:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(201,164,92,.25);border-radius:50%;left:-130px;bottom:-150px}
-.photo-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.22)}
+.about-photo:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(201,164,92,.25);border-radius:50%;left:-130px;bottom:-150px;z-index:2;pointer-events:none}
+.about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.55;transition:.3s}
+.about-photo:hover img{transform:scale(1.05);opacity:0.7}
+.photo-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.22);z-index:1}
 .photo-label b{font:800 82px Montserrat}
 .photo-label span{font-size:10px;letter-spacing:2px}
 .about-badge{position:absolute;right:25px;bottom:25px;background:var(--gold);color:var(--navy);padding:20px 23px;border-radius:10px}
@@ -155,7 +157,9 @@ section{scroll-margin-top:82px}
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .fleet-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;transition:.3s}
 .fleet-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.fleet-image{height:245px;background:linear-gradient(145deg,#0c2b49,#061525);display:grid;place-items:center;color:rgba(255,255,255,.25);font-size:10px;letter-spacing:2px}
+.fleet-image{height:245px;position:relative;overflow:hidden;background:#0c2b49}
+.fleet-image img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.fleet-card:hover .fleet-image img{transform:scale(1.05)}
 .fleet-info{padding:24px}
 .fleet-info small{color:var(--gold);font-weight:800;font-size:9px;letter-spacing:1.5px}
 .fleet-info h3{font:700 18px Montserrat;margin-top:6px;color:var(--navy)}
@@ -309,6 +313,7 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
 <section class="section" id="empresa">
   <div class="container about-grid">
     <div class="about-photo reveal">
+      <img src="images/institutional.jpg" alt="Frota R&V Locação e Transporte">
       <div class="photo-label"><b>R&V</b><span>IMAGEM INSTITUCIONAL</span></div>
       <div class="about-badge"><strong>R&V</strong><span>Locação & Transporte</span></div>
     </div>
@@ -391,9 +396,36 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
     </div>
 
     <div class="fleet-grid">
-      <article class="fleet-card reveal"><div class="fleet-image">FOTO DO VEÍCULO</div><div class="fleet-info"><small>PASSAGEIROS</small><h3>Veículo de transporte</h3><p>Conforto e praticidade para deslocamentos.</p></div></article>
-      <article class="fleet-card reveal"><div class="fleet-image">FOTO DO VEÍCULO</div><div class="fleet-info"><small>EXECUTIVO</small><h3>Veículo executivo</h3><p>Experiência diferenciada para clientes e empresas.</p></div></article>
-      <article class="fleet-card reveal"><div class="fleet-image">FOTO DO VEÍCULO</div><div class="fleet-info"><small>CORPORATIVO</small><h3>Operação empresarial</h3><p>Solução para demandas recorrentes e contratos.</p></div></article>
+      <article class="fleet-card reveal">
+        <div class="fleet-image">
+          <img src="images/taxi.jpg" alt="Veículo de Transporte R&V">
+        </div>
+        <div class="fleet-info">
+          <small>PASSAGEIROS</small>
+          <h3>Veículo de transporte</h3>
+          <p>Conforto e praticidade para deslocamentos.</p>
+        </div>
+      </article>
+      <article class="fleet-card reveal">
+        <div class="fleet-image">
+          <img src="images/executive.jpg" alt="Veículo Executivo R&V">
+        </div>
+        <div class="fleet-info">
+          <small>EXECUTIVO</small>
+          <h3>Veículo executivo</h3>
+          <p>Experiência diferenciada para clientes e empresas.</p>
+        </div>
+      </article>
+      <article class="fleet-card reveal">
+        <div class="fleet-image">
+          <img src="images/van.jpg" alt="Operação Empresarial R&V">
+        </div>
+        <div class="fleet-info">
+          <small>CORPORATIVO</small>
+          <h3>Operação empresarial</h3>
+          <p>Solução para demandas recorrentes e contratos.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -428,9 +460,9 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
       <p>Preencha o formulário e envie sua solicitação diretamente pelo WhatsApp da empresa.</p>
 
       <div class="contact-list">
-        <div class="contact-row"><div class="contact-icon">☎</div><div><small>WhatsApp</small><strong>(94) 99999-9999</strong></div></div>
-        <div class="contact-row"><div class="contact-icon">✉</div><div><small>E-mail</small><strong>contato@rvtransportes.com.br</strong></div></div>
-        <div class="contact-row"><div class="contact-icon">⌖</div><div><small>Área de atendimento</small><strong>Parauapebas e região — PA</strong></div></div>
+        <div class="contact-row"><div class="contact-icon">☎</div><div><small>WhatsApp</small><strong>(94) 99157-6011</strong></div></div>
+        <div class="contact-row"><div class="contact-icon">✉</div><div><small>E-mail</small><strong>RVlocacoes14@gmail.com</strong></div></div>
+        <div class="contact-row"><div class="contact-icon">⌖</div><div><small>Endereço</small><strong>Rua Rio Claro, S/N, Terminal Rodoviário, Beira Rio 1 — Parauapebas - PA</strong></div></div>
       </div>
     </div>
 
@@ -440,7 +472,7 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
 
       <div class="form-grid">
         <div class="field"><label>Nome</label><input id="nome" required placeholder="Seu nome"></div>
-        <div class="field"><label>Telefone</label><input id="telefone" required placeholder="(94) 99999-9999"></div>
+        <div class="field"><label>Telefone</label><input id="telefone" required placeholder="(94) 99157-6011"></div>
       </div>
 
       <div class="field"><label>Tipo de serviço</label>
@@ -477,13 +509,13 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
       </div>
       <div class="footer-col"><h4>Navegação</h4><a href="#empresa">A Empresa</a><a href="#servicos">Serviços</a><a href="#corporativo">Corporativo</a><a href="#frota">Frota</a></div>
       <div class="footer-col"><h4>Serviços</h4><a href="#servicos">Táxi</a><a href="#corporativo">Transporte corporativo</a><a href="#servicos">Executivo</a><a href="#servicos">Locação</a></div>
-      <div class="footer-col"><h4>Contato</h4><a href="#contato">WhatsApp</a><a href="mailto:contato@rvtransportes.com.br">E-mail</a><span>Parauapebas — PA</span></div>
+      <div class="footer-col"><h4>Contato</h4><a href="#contato">WhatsApp</a><a href="mailto:RVlocacoes14@gmail.com">E-mail</a><span>Terminal Rodoviário, Beira Rio 1 — Parauapebas - PA</span></div>
     </div>
     <div class="bottom"><span>© <span id="year"></span> R&V Locação e Transporte. Todos os direitos reservados.</span><span>Site institucional</span></div>
   </div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/5594999999999" target="_blank">WhatsApp ↗</a>
+<a class="whatsapp" href="https://wa.me/5594991576011" target="_blank">WhatsApp ↗</a>
 
 <script>
 const header=document.getElementById('header');
@@ -538,8 +570,8 @@ Gostaria de solicitar uma proposta.
 *Mensagem:*
 ${msg}`;
 
-  // TROQUE 5594999999999 PELO WHATSAPP REAL DA R&V
-  window.open('https://wa.me/5594999999999?text='+encodeURIComponent(text),'_blank');
+  // WhatsApp real da R&V: 5594991576011
+  window.open('https://wa.me/5594991576011?text='+encodeURIComponent(text),'_blank');
 });
 
 document.getElementById('year').textContent=new Date().getFullYear();
