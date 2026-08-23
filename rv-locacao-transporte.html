@@ -10,8 +10,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap');
 
 :root{
-  --navy:#061525;
-  --navy2:#0b223b;
+  --navy:#072a1f;
+  --navy2:#0e3e2f;
   --gold:#c9a45c;
   --gold2:#e5c77d;
   --white:#fff;
@@ -20,7 +20,7 @@
   --light:#f5f7fa;
   --line:#e7ebef;
   --green:#20b765;
-  --shadow:0 24px 70px rgba(4,19,35,.12);
+  --shadow:0 24px 70px rgba(4,30,22,.12);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -32,10 +32,10 @@ button,input,select,textarea{font:inherit}
 /* HEADER */
 header{
  position:fixed;top:0;left:0;width:100%;z-index:1000;
- background:rgba(6,21,37,.90);backdrop-filter:blur(18px);
+ background:rgba(7,42,31,.90);backdrop-filter:blur(18px);
  border-bottom:1px solid rgba(255,255,255,.08);transition:.3s
 }
-header.scrolled{background:rgba(6,21,37,.98);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+header.scrolled{background:rgba(7,42,31,.98);box-shadow:0 12px 35px rgba(0,0,0,.18)}
 .navbar{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
 .logo{display:flex;align-items:center;color:#fff;gap:9px}
 .logo-mark{font:800 25px Montserrat;color:#fff;letter-spacing:-2px}
@@ -59,8 +59,8 @@ nav a.active{color:var(--gold)}
 .hero{
  min-height:850px;position:relative;display:flex;align-items:center;color:#fff;
  background:
- linear-gradient(90deg,rgba(3,14,25,.98) 0%,rgba(3,14,25,.86) 42%,rgba(3,14,25,.40) 100%),
- linear-gradient(135deg,#0b2946,#061525);
+  linear-gradient(90deg,rgba(4,22,16,.98) 0%,rgba(4,22,16,.86) 42%,rgba(4,22,16,.40) 100%),
+  linear-gradient(135deg,#0e3e2f,#072a1f);
  overflow:hidden
 }
 .hero:after{
@@ -103,7 +103,7 @@ section{scroll-margin-top:82px}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:85px;align-items:center}
-.about-photo{min-height:510px;border-radius:16px;background:linear-gradient(145deg,#09213a,#061525);position:relative;overflow:hidden}
+.about-photo{min-height:510px;border-radius:16px;background:linear-gradient(145deg,#0d3829,#072a1f);position:relative;overflow:hidden}
 .about-photo:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(201,164,92,.25);border-radius:50%;left:-130px;bottom:-150px;z-index:2;pointer-events:none}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.55;transition:.3s}
 .about-photo:hover img{transform:scale(1.05);opacity:0.7}
@@ -154,10 +154,10 @@ section{scroll-margin-top:82px}
 .panel-line:nth-child(1){width:90%}.panel-line:nth-child(2){width:75%}.panel-line:nth-child(3){width:83%}
 
 /* FLEET */
-.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .fleet-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;transition:.3s}
 .fleet-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.fleet-image{height:245px;position:relative;overflow:hidden;background:#0c2b49}
+.fleet-image{height:245px;position:relative;overflow:hidden;background:#0e3e2f}
 .fleet-image img{width:100%;height:100%;object-fit:cover;transition:.3s}
 .fleet-card:hover .fleet-image img{transform:scale(1.05)}
 .fleet-info{padding:24px}
@@ -177,7 +177,7 @@ section{scroll-margin-top:82px}
 .cta{background:linear-gradient(125deg,#b88e40,#d8b568);padding:80px 0;color:var(--navy)}
 .cta-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
 .cta h2{font:800 clamp(30px,4vw,46px)/1.1 Montserrat;max-width:730px}
-.cta p{font-size:13px;margin-top:12px;color:rgba(6,21,37,.7)}
+.cta p{font-size:13px;margin-top:12px;color:rgba(7,42,31,.7)}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
@@ -199,7 +199,7 @@ section{scroll-margin-top:82px}
 .form .btn{width:100%;margin-top:22px}
 
 /* FOOTER */
-footer{background:#04101c;color:#fff;padding:65px 0 23px}
+footer{background:#031711;color:#fff;padding:65px 0 23px}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:45px}
 .footer-brand p{color:#7e8d9d;font-size:11px;max-width:260px;margin-top:17px}
 .footer-col h4{font-size:10px;color:var(--gold);letter-spacing:1.4px;margin-bottom:14px}
@@ -398,12 +398,22 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
     <div class="fleet-grid">
       <article class="fleet-card reveal">
         <div class="fleet-image">
-          <img src="images/taxi.jpg" alt="Veículo de Transporte R&V">
+          <img src="images/taxi_fox.jpg" alt="Veículo de Transporte R&V - VW Fox">
         </div>
         <div class="fleet-info">
-          <small>PASSAGEIROS</small>
-          <h3>Veículo de transporte</h3>
-          <p>Conforto e praticidade para deslocamentos.</p>
+          <small>TÁXI HATCH</small>
+          <h3>VW Fox</h3>
+          <p>Conforto, economia e agilidade para deslocamentos urbanos.</p>
+        </div>
+      </article>
+      <article class="fleet-card reveal">
+        <div class="fleet-image">
+          <img src="images/taxi_duster.jpg" alt="Veículo SUV R&V - Renault Duster">
+        </div>
+        <div class="fleet-info">
+          <small>TÁXI SUV</small>
+          <h3>Renault Duster</h3>
+          <p>Espaço interno amplo, robustez e segurança para sua viagem.</p>
         </div>
       </article>
       <article class="fleet-card reveal">
@@ -412,8 +422,8 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
         </div>
         <div class="fleet-info">
           <small>EXECUTIVO</small>
-          <h3>Veículo executivo</h3>
-          <p>Experiência diferenciada para clientes e empresas.</p>
+          <h3>Veículo Executivo</h3>
+          <p>Privacidade, sofisticação e conforto premium para negócios.</p>
         </div>
       </article>
       <article class="fleet-card reveal">
@@ -422,8 +432,8 @@ footer{background:#04101c;color:#fff;padding:65px 0 23px}
         </div>
         <div class="fleet-info">
           <small>CORPORATIVO</small>
-          <h3>Operação empresarial</h3>
-          <p>Solução para demandas recorrentes e contratos.</p>
+          <h3>Operação Empresarial</h3>
+          <p>Transporte estruturado e seguro para equipes e viagens de negócios.</p>
         </div>
       </article>
     </div>
